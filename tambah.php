@@ -2,7 +2,26 @@
 date_default_timezone_get();
 
 require "function.php";
-$camaba = query("SELECT * FROM calon_mhs");
+
+if(isset($_POST['tambah'])){
+  if (tambah($_POST)>0){
+    echo
+    "<script>
+    alert('data berhasil di tambah');
+    document.location.href = 'index.php';
+    </script>";
+  }else{
+    "<script>
+    alert('data tidak berhasil di tambah');
+    </script>";
+  }
+
+  }
+
+
+
+
+
 ?>
 
 
@@ -46,7 +65,7 @@ $camaba = query("SELECT * FROM calon_mhs");
         <!-- menu end -->
         <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="in"><i class="fab fa-dashcube"></i> DASHBOARD</a>
+            <a class="nav-link active" aria-current="page" href="#"><i class="fab fa-dashcube"></i> DASHBOARD</a>
         </li> <hr>
         <li class="nav-item">
             <a class="nav-link text-white" href="index.php"><i class="fas fa-users"></i> Calon Mahasiswa</a>
@@ -64,34 +83,41 @@ $camaba = query("SELECT * FROM calon_mhs");
         </div>
       <div class = "col-md-10">
           <!-- content end -->
-          <h3><i class="fas fa-address-card"></i> Daftar Calon Mahasiswa</h3>
-          <table class="table  table-dark table-hover table-striped">
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">ID</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Foto Maba</th>
-              <th scope="col">OPSI</th>
+          <h3><i class="fas fa-address-card"></i> Detail Calon Mahasiswa</h3>
+         <hr>
+         <form method="post" action="">
+         <div class="mb-3">
+            <label for="id" class="form-label">NIM : </label>
+            <input type="text" class="form-control" id="id" placeholder="nim lengkap" name="id" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama : </label>
+            <input type="text" class="form-control" id="nama" placeholder="nama lengkap" name="nama" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat : </label>
+            <input type="text" class="form-control" id="alamat" placeholder="alama lengkap" name="alamat" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="jenis_kelamin" class="form-label">Jenis Kelamin : </label>
+            <input type="text" class="form-control" id="jenis kelamin" placeholder="nama lengkap" name="jenis_kelamin" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="agama" class="form-label">Agama : </label>
+            <input type="text" class="form-control" id="agama" placeholder="agama" name="agama" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="sekolah_asal" class="form-label">Sekolah Asal : </label>
+            <input type="text" class="form-control" id="sekolah_asal" placeholder="sekolah asal" name="sekolah_asal" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="foto_maba" class="form-label">foto :</label>
+            <input type="text" class="form-control" id="foto_maba" placeholder="foto" name="foto maba" required autocomplete="off">
+        </div>
+        
 
-            </tr>
-          </thead>
-          <tbody>
-              <?php $no=1;?>
-            <?php foreach ($camaba as $cmb) : ?>
-           
-            <tr >
-              <th scope="row"><?php echo $no; ?></th>
-              <td><?php echo $cmb['id']; ?></td>
-              <td><?php echo $cmb['nama']; ?></td>
-              <td><img src="image/<?php echo $cmb['foto maba']; ?> " width = 75  alt="" srcset=""></td>
-              <td><a href="detail.php?id=<?= $cmb['id']; ?>" class ="btn btn-warning" role="button">detail</a></td>
-            </tr >
-            <?php $no++ ?>
-            <?php endforeach  ?>
-          </tbody>
-        </table>
-
+        <button type="submit" class="btn btn-primary" name = 'tambah'>Submit</button>
+        </form>
       </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

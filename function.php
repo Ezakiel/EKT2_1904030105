@@ -19,3 +19,29 @@ while ($row = mysqli_fetch_assoc($result)){
 }
 return $rows;
 }
+function tambah($data)
+{
+global $conn;
+$no= ($data['nomor']);
+$id= ($data['id']);
+$nama = ($data['nama']);
+$alamat = ($data['alamat']);
+$jenis_kelamin = ($data['jenis_kelamin']);
+$agama = ($data['agama']);
+$sekolah_asal = ($data['sekolah_asal']);
+$foto_maba = ($data['foto_maba']);
+
+$query = "INSERT INTO calon_mhs
+values
+('','$id','$nama','$alamat','$jenis_kelamin','$agama','$sekolah_asal','$foto_maba');";
+mysqli_query($conn,$query);
+
+echo mysqli_error($conn);
+return mysqli_affected_rows($conn);
+}
+function delete($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM calon_mhs WHERE id = $id") or die (mysqli_error($conn));
+return mysqli_affected_rows($conn);
+}

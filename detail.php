@@ -53,7 +53,7 @@ $camaba = query("SELECT * FROM calon_mhs where id =$id");
             <a class="nav-link text-white" href="index.php"><i class="fas fa-users"></i> Calon Mahasiswa</a>
         </li> <hr>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-user-plus"></i> Input CaMaBar</a>
+            <a class="nav-link text-white" href="tambah.php"><i class="fas fa-user-plus"></i> Input CaMaBar</a>
         </li> <hr>
         <li class="nav-item">
             <a class="nav-link text-white" href="#"><i class="fas fa-chalkboard-teacher"></i> Daftar Dosen</a>
@@ -75,8 +75,8 @@ $camaba = query("SELECT * FROM calon_mhs where id =$id");
              <li class = "list-group-item">Sekolah_asal :<?= $camaba['sekolah_asal']?></li>
              <li class = "list-group-item"><img src=" image/<?= $camaba['foto maba']?>" width = 100 alt="" srcset=""></li>
              <li class = "list-group-item">
-             <a href="edit.php?id=<?= $cmb['id']; ?>" class ="btn btn-warning" role="button">EDIT</a>
-             <a href="delete.php?id=<?= $cmb['id']; ?>" class ="btn btn-danger" role="button">DELETE</a>
+             <a href="edit.php?id=<?= $camaba['id']; ?>" class ="btn btn-warning" role="button">EDIT</a>
+             <a href="delete.php?id=<?= $camaba['id']; ?>" class ="btn btn-danger" role="button">DELETE</a>
              <a href="index.php" class ="btn btn-primary" role="button">BACK</a> 
              </li>
          </ul>
