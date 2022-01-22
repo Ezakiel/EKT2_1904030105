@@ -65,10 +65,10 @@ $camaba = query("SELECT * FROM calon_mhs");
       <div class = "col-md-10">
           <!-- content end -->
           <h3><i class="fas fa-address-card"></i> Daftar Calon Mahasiswa</h3>
-          <table class="table  table-dark table-hover table-striped">
+          <table class="table  table-dark table-hover table-striped" >
           <thead>
             <tr>
-              <th scope="col">No</th>
+            
               <th scope="col">ID</th>
               <th scope="col">Nama</th>
               <th scope="col">Foto Maba</th>
@@ -77,17 +77,16 @@ $camaba = query("SELECT * FROM calon_mhs");
             </tr>
           </thead>
           <tbody>
-              <?php $no=1;?>
+              <?php $id=1;?>
             <?php foreach ($camaba as $cmb) : ?>
            
             <tr >
-              <th scope="row"><?php echo $no; ?></th>
-              <td><?php echo $cmb['id']; ?></td>
+              <th scope="row"><?php echo $id; ?></th>
               <td><?php echo $cmb['nama']; ?></td>
-              <td><img src="image/<?php echo $cmb['foto maba']; ?> " width = 75  alt="" srcset=""></td>
+              <td><img src="image/<?php echo $cmb['foto_maba']; ?> " width = 75  alt="" srcset=""></td>
               <td><a href="detail.php?id=<?= $cmb['id']; ?>" class ="btn btn-warning" role="button">detail</a></td>
             </tr >
-            <?php $no++ ?>
+            <?php $id++ ?>
             <?php endforeach  ?>
           </tbody>
         </table>

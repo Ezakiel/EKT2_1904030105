@@ -2,8 +2,31 @@
 date_default_timezone_get();
 
 require "function.php";
-$id = $_GET['id'];
-$camaba = query("SELECT * FROM calon_mhs where id =$id");
+ $id =$_GET['id'];
+ $camaba = query("SELECT * FROM calon_mhs where id = $id");
+
+
+ if(isset($_POST['edit'])){
+    if (edit($_POST) > 0){
+      echo
+      "<script>
+      alert('data berhasil di edit');
+      document.location.href = 'index.php';
+      </script>";
+    }else{
+      "<script>
+      alert('data tidak berhasil di edit');
+      </script>";
+    }
+  
+    }
+  
+
+
+
+
+
+
 ?>
 
 
@@ -65,22 +88,41 @@ $camaba = query("SELECT * FROM calon_mhs where id =$id");
         </div>
       <div class = "col-md-10">
           <!-- content end -->
-          <h3><i class="fas fa-address-card"></i> Detail Calon Mahasiswa</h3>
+          <h3><i class="fas fa-address-card"></i> Edit Data Mahasiswa</h3>
          <hr>
-         <ul class = list-group>
-             <li class = "list-group-item">Nama : <?= $camaba['nama']?></li>
-             <li class = "list-group-item">Alamat :<?= $camaba['alamat']?></li>
-             <li class = "list-group-item">Jenis Kelamin :<?= $camaba['jenis_kelamin']?></li>
-             <li class = "list-group-item">Agama : <?= $camaba['agama']?></li>
-             <li class = "list-group-item">Sekolah_asal :<?= $camaba['sekolah_asal']?></li>
-             <li class = "list-group-item"><img src=" image/<?= $camaba['foto_maba']?>" width = 100 alt="" srcset=""></li>
-             <li class = "list-group-item">
-             <a href="edit.php?id=<?= $camaba['id']; ?>" class ="btn btn-warning" role="button">EDIT</a>
-             <a href="delete.php?id=<?= $camaba['id']; ?>" onclick="return confirm('Are you sure you want to delete');"class ="btn btn-danger" role="button">DELETE</a>
-             <a href="index.php" class ="btn btn-primary" role="button">BACK</a> 
-             </li>
-         </ul>
+         <form method="post" action="">
+         
+         <div class="mb-3">
+            <input type="hidden"  id="id" value = "<?=$camaba['id']?>"  name="id">
+        </div>
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama : </label>
+            <input type="text" class="form-control" id="nama" value = "<?=$camaba['nama']?>" placeholder="nama lengkap" name="nama" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat : </label>
+            <input type="text" class="form-control" id="alamat"value = "<?=$camaba['alamat']?>" placeholder="alamat lengkap" name="alamat" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="jenis_kelamin" class="form-label">Jenis Kelamin : </label>
+            <input type="text" class="form-control" id="jenis kelamin" value = "<?=$camaba['jenis_kelamin']?>" placeholder="jenis kelamin" name="jenis_kelamin" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="agama" class="form-label">Agama : </label>
+            <input type="text" class="form-control" id="agama" value = "<?=$camaba['agama']?>" placeholder="agama" name="agama" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="sekolah_asal" class="form-label">Sekolah Asal : </label>
+            <input type="text" class="form-control" id="sekolah_asal"value = "<?=$camaba['sekolah_asal']?>" placeholder="sekolah asal" name="sekolah_asal" required autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="foto_maba" class="form-label">foto :</label>
+            <input type="text" class="form-control" id="foto_maba" value = "<?=$camaba['foto_maba']?>"placeholder="foto" name="foto_maba" required autocomplete="off">
+        </div>
+        
 
+        <button type="submit" class="btn btn-primary" name = 'edit'>Submit</button>
+        </form>
       </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

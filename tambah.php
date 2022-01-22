@@ -86,10 +86,7 @@ if(isset($_POST['tambah'])){
           <h3><i class="fas fa-address-card"></i> Detail Calon Mahasiswa</h3>
          <hr>
          <form method="post" action="">
-         <div class="mb-3">
-            <label for="id" class="form-label">NIM : </label>
-            <input type="text" class="form-control" id="id" placeholder="nim lengkap" name="id" required autocomplete="off">
-        </div>
+         
         <div class="mb-3">
             <label for="nama" class="form-label">Nama : </label>
             <input type="text" class="form-control" id="nama" placeholder="nama lengkap" name="nama" required autocomplete="off">
@@ -112,7 +109,7 @@ if(isset($_POST['tambah'])){
         </div>
         <div class="mb-3">
             <label for="foto_maba" class="form-label">foto :</label>
-            <input type="text" class="form-control" id="foto_maba" placeholder="foto" name="foto maba" required autocomplete="off">
+            <input type="text" class="form-control" id="foto_maba" placeholder="foto" name="foto_maba" required autocomplete="off">
         </div>
         
 
